@@ -13,5 +13,13 @@ COPY --from=builder /usr/local/bin /usr/local/bin
 ENV vulnerable=1
 ENV tokentimetolive=60
 
+# added to include seeker agent
+ENV SEEKER_SERVER_URL=https://xxx.xxx.xxx.com:443
+ENV SEEKER_PROJECT_KEY=HVP_capital
+ENV SEEKER_AGENT_NAME=HVP_capital
+ENV SEEKER_AGENT_APP_OPENAPI_SPEC_FILE=/openapi.json
+ENV SEEKER_AGENT_APP_OPENAPI_URL=http://127.0.0.1:5000
+RUN pip install --trusted-host xxx.xxx.xxx.com:443 --extra-index-url "https://xxx.xxx.xxx.com/pypi-server/simple" seeker-agent
+
 ENTRYPOINT ["python"]
 CMD ["app.py"]
