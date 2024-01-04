@@ -1,2 +1,2 @@
-docker build . -t erev0s/vampi:test
+docker build -t erev0s/vampi:test .
 docker run -p 5000:5000 erev0s/vampi:test
