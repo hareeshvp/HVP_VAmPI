@@ -17,9 +17,9 @@ ENV tokentimetolive=60
 ENV SEEKER_SERVER_URL=https://xxx.xxx.xxx.com:443
 ENV SEEKER_PROJECT_KEY=HVP_VAmPI
 ENV SEEKER_AGENT_NAME=HVP_VAmPI
-ENV SEEKER_AGENT_APP_OPENAPI_SPEC_FILE=/openapi.json
-ENV SEEKER_AGENT_APP_OPENAPI_URL=http://127.0.0.1:5000
+#ENV SEEKER_AGENT_APP_OPENAPI_SPEC_FILE=/openapi.json
+#ENV SEEKER_AGENT_APP_OPENAPI_URL=http://127.0.0.1:5000
+ENV SEEKER_AGENT_APP_OPENAPI_SPEC_URL=http://127.0.0.1:5000/openapi.json
 RUN pip install --trusted-host xxx.xxx.xxx.com:443 --extra-index-url "https://xxx.xxx.xxx.com/pypi-server/simple" seeker-agent
 
-ENTRYPOINT ["python"]
-CMD ["app.py"]
+CMD ["seeker-exec", "python", "app.py"]
